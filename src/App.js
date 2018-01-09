@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Voting pair={pair} />
+        <Voting pair={pair} winner="Trainspotting" />
       </div>
     );
   }
