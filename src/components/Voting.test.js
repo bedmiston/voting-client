@@ -47,21 +47,18 @@ describe('<Voting />', () => {
     expect(winner.text()).toContain('Trainspotting');
   });
 
-  // it('renders as a pure component', () => {
-  //   const pair = ['Trainspotting', '28 Days Later'];
-  //   const container = document.createElement('div');
-  //   let component = mount(<Voting pair={pair} />);
+  it('renders as a pure component', () => {
+    const pair = ['Trainspotting', '28 Days Later'];
+    const container = document.createElement('div');
+    let voting = mount(<Voting pair={pair} />);
 
-  //   let firstButton = component.find('button').first();
-  //   expect(firstButton.text()).toBe('Trainspotting');
+    let firstButton = voting.find('button').first();
+    expect(firstButton.text()).toBe('Trainspotting');
 
-  //   pair[0] = 'Sunshine';
-  //   component = ReactDOM.render(
-  //     <Voting pair={pair} />,
-  //     container
-  //   );
-  //   firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
-  //   expect(firstButton.textContent).to.equal('Trainspotting');
-  // });
+    pair[0] = 'Sunshine';
+    voting.update();
+    firstButton = voting.find('button').first();
+    expect(firstButton.text()).toBe('Trainspotting');
+  });
 
 });
