@@ -8,12 +8,13 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducer';
+import { setState } from './action_creators';
 
 const store = createStore(reducer);
 
 const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
 socket.on('state', state =>
-  store.dispatch({ type: 'SET_STATE', state })
+  store.dispatch(setState(state))
 );
 
 ReactDOM.render(
