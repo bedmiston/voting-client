@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import { shallow, mount } from 'enzyme';
+import React from 'react';
+import { mount } from 'enzyme';
 import Voting from './Voting';
 import { List } from 'immutable';
 

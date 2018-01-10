@@ -1,19 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Main from './components/Main';
 
-import Voting from './components/Voting';
-
-const pair = ['Trainspotting', '28 Days Later'];
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Voting pair={pair} winner="Trainspotting" />
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className="App">
+      <Main />
+    </div>
+  );
 }
 
 export default App;
