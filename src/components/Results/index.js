@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Tally from './Tally';
 import Winner from '../Winner';
+import * as actionCreators from '../../action_creators';
 
 
 const mapStateToProps = state => ({
@@ -20,4 +21,4 @@ export class Results extends Component {
   }
 };
 
-export const ResultsContainer = connect(mapStateToProps)(Results);
+export const ResultsContainer = connect(mapStateToProps, actionCreators)(Results);
