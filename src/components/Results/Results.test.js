@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Results from '.';
+import { Results } from '.';
 import { Map, List } from 'immutable';
 
 describe('<Results />', () => {

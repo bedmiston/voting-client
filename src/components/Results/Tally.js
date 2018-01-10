@@ -27,7 +27,9 @@ class Tally extends React.Component {
         </div>
         <div className="management">
           <button className="next"
-            onClick={this.props.next} />
+            onClick={this.props.next}>
+            Next
+          </button>
         </div>
       </div>
     );

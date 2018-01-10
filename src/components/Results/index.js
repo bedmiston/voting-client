@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import Tally from './Tally';
 import Winner from '../Winner';
 
-class Results extends Component {
+
+const mapStateToProps = state => ({
+  pair: state.getIn(['vote', 'pair']),
+  tally: state.getIn(['vote', 'tally']),
+  winner: state.get('winner')
+});
+
+export class Results extends Component {
   render() {
     return (
       this.props.winner ?
@@ -12,4 +20,4 @@ class Results extends Component {
   }
 };
 
-export default Results;
+export const ResultsContainer = connect(mapStateToProps)(Results);
