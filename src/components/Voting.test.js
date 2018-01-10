@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import Voting from './Voting';
+import { List } from 'immutable';
 
 describe('<Voting />', () => {
   it('renders a pair of buttons', () => {
@@ -49,7 +50,6 @@ describe('<Voting />', () => {
 
   it('renders as a pure component', () => {
     const pair = ['Trainspotting', '28 Days Later'];
-    const container = document.createElement('div');
     let voting = mount(<Voting pair={pair} />);
 
     let firstButton = voting.find('button').first();
@@ -59,6 +59,19 @@ describe('<Voting />', () => {
     voting.update();
     firstButton = voting.find('button').first();
     expect(firstButton.text()).toBe('Trainspotting');
+  });
+
+  it('does update DOM when prop changes', () => {
+    const pair = List.of('Trainspotting', '28 Days Later');
+    let voting = mount(<Voting pair={pair} />);
+
+    let firstButton = voting.find('button').first();
+    expect(firstButton.text()).toBe('Trainspotting');
+
+    const newPair = pair.set(0, 'Sunshine');
+    voting = mount(<Voting pair={newPair} />);
+    firstButton = voting.find('button').first();
+    expect(firstButton.text()).toBe('Sunshine');
   });
 
 });
