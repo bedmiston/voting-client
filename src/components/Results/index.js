@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Winner from './Winner';
+import Winner from '../Winner';
 
 class Results extends Component {
   getPair() {
